@@ -4,33 +4,33 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
-    android:padding="30dp"
+    android:orientation="vertical"
     android:background="#111827">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SubsManager"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:textStyle="bold"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gestiona tus servicios"
+        android:text="Desarrollado por"
         android:textColor="#9CA3AF"
-        android:textSize="16sp"
-        android:layout_marginBottom="40dp"/>
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"/>
 
-    <Button
-        android:id="@+id/loginBtn"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Iniciar Sesión"
-        android:backgroundTint="#2563EB"
-        android:textColor="#FFFFFF"/>
+        android:text="Muñoz Camarena Sergio Adriel"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"/>
 
 </LinearLayout>

@@ -1,12 +1,10 @@
 
-SUBSMANAGER ANDROID STUDIO
+1. Descomprime el ZIP
+2. Abre Android Studio
+3. File -> Open
+4. Selecciona la carpeta SubsManagerReady
+5. Espera Gradle Sync
+6. Run ▶
 
-PASOS:
-
-1. Abrir Android Studio
-2. File -> Open
-3. Abrir carpeta SubsManagerCompleto
-4. Esperar Gradle
-5. Ejecutar
-
-Proyecto escolar sencillo y bonito.
+Si pide SDK:
+instala Android SDK 34.

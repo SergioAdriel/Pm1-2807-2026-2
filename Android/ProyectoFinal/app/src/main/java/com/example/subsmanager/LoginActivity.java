@@ -1,24 +1,31 @@
-
 package com.example.subsmanager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Button btnLogin;
+    Button loginBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btnLogin = findViewById(R.id.btnLogin);
+        loginBtn = findViewById(R.id.loginBtn);
 
-        btnLogin.setOnClickListener(v -> {
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+        loginBtn.setOnClickListener(v -> {
+
+            Intent intent =
+                    new Intent(LoginActivity.this,
+                            MainActivity.class);
+
+            startActivity(intent);
+
         });
+
     }
 }
