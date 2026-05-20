@@ -1,117 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F3F4F6"
-    android:fillViewport="true">
+    android:orientation="vertical"
+    android:background="#F3F4F6">
 
-    <LinearLayout
+    <!-- CONTENIDO -->
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
-
-        <!-- TITULO -->
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SubsManager"
-            android:textColor="#111827"
-            android:textSize="34sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gestiona tus suscripciones"
-            android:textColor="#6B7280"
-            android:textSize="16sp"
-            android:layout_marginTop="4dp" />
-
-        <!-- RESUMEN -->
-
-        <TextView
-            android:id="@+id/resumenTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Próximo cobro total: $0 MXN"
-            android:textColor="#2563EB"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp" />
-
-        <!-- CARD DASHBOARD -->
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="24dp"
-                android:background="#2563EB">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="📊 Dashboard"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Servicios activos"
-                    android:textColor="#FFFFFF"
-                    android:textSize="28sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="8dp" />
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <!-- BOTON AGREGAR -->
-
-        <Button
-            android:id="@+id/addButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="➕ Agregar Subscripción"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:backgroundTint="#111827"
-            android:layout_marginTop="24dp" />
-
-        <!-- BOTON CREDITOS -->
-
-        <Button
-            android:id="@+id/creditsButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="👨‍💻 Créditos"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:backgroundTint="#2563EB"
-            android:layout_marginTop="12dp" />
-
-        <!-- CONTENEDOR DINAMICO -->
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <LinearLayout
-            android:id="@+id/containerSubs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="20dp" />
+            android:padding="20dp">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SubsManager"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:textColor="#111827"/>
 
-</ScrollView>
+            <TextView
+                android:id="@+id/resumenTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Próximo cobro total: $0 MXN"
+                android:textColor="#2563EB"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"/>
+
+            <Button
+                android:id="@+id/addButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Agregar Subscripción"
+                android:layout_marginTop="20dp"/>
+
+            <Button
+                android:id="@+id/creditsButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Créditos"
+                android:layout_marginTop="10dp"/>
+
+            <LinearLayout
+                android:id="@+id/containerSubs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- BOTTOM NAVIGATION -->
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:menu="@menu/bottom_menu"/>
+
+</LinearLayout>

@@ -5,12 +5,14 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
+import android.view.Gravity;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -80,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         EditText nombre =
                 new EditText(this);
 
-        nombre.setHint("Nombre");
+        nombre.setHint("Nombre del servicio");
 
         layout.addView(nombre);
 
@@ -143,6 +145,18 @@ public class MainActivity extends AppCompatActivity {
         builder.setPositiveButton("Agregar",
                 (dialog, which) -> {
 
+                    if(nombre.getText().toString().isEmpty()
+                            || costo.getText().toString().isEmpty()) {
+
+                        Toast.makeText(
+                                this,
+                                "Completa todos los campos",
+                                Toast.LENGTH_SHORT
+                        ).show();
+
+                        return;
+                    }
+
                     agregarCard(
                             nombre.getText().toString(),
                             costo.getText().toString(),
@@ -196,6 +210,8 @@ public class MainActivity extends AppCompatActivity {
 
         titulo.setTextSize(22);
 
+        titulo.setGravity(Gravity.START);
+
         TextView precio =
                 new TextView(this);
 
@@ -206,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
         TextView frecuenciaTxt =
                 new TextView(this);
 
-        frecuenciaTxt.setText("🔁 " + frecuencia);
+        frecuenciaTxt.setText("🔁 Cobro: " + frecuencia);
 
         frecuenciaTxt.setTextSize(16);
 
@@ -226,6 +242,14 @@ public class MainActivity extends AppCompatActivity {
 
             containerSubs.removeView(card);
 
+            total -= Integer.parseInt(costo);
+
+            resumenTxt.setText(
+                    "Próximo cobro total: $" +
+                            total +
+                            " MXN"
+            );
+
         });
 
         inside.addView(titulo);
@@ -242,17 +266,13 @@ public class MainActivity extends AppCompatActivity {
 
         containerSubs.addView(card);
 
-        if(!costo.isEmpty()) {
+        total += Integer.parseInt(costo);
 
-            total += Integer.parseInt(costo);
-
-            resumenTxt.setText(
-                    "Próximo cobro total: $" +
-                            total +
-                            " MXN"
-            );
-
-        }
+        resumenTxt.setText(
+                "Próximo cobro total: $" +
+                        total +
+                        " MXN"
+        );
 
     }
 
