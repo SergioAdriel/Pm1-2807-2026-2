@@ -17,12 +17,16 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class MainActivity extends AppCompatActivity {
 
     LinearLayout containerSubs;
 
     Button addButton;
     Button creditsButton;
+
+    BottomNavigationView bottomNav;
 
     TextView resumenTxt;
 
@@ -45,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
         resumenTxt = findViewById(R.id.resumenTxt);
 
+        bottomNav = findViewById(R.id.bottomNav);
+
         addButton.setOnClickListener(v -> {
 
             mostrarDialogo();
@@ -60,6 +66,52 @@ public class MainActivity extends AppCompatActivity {
                     );
 
             startActivity(intent);
+
+        });
+
+        bottomNav.setOnItemSelectedListener(item -> {
+
+            if(item.getItemId() == R.id.home) {
+
+                Toast.makeText(
+                        this,
+                        "Inicio",
+                        Toast.LENGTH_SHORT
+                ).show();
+
+                return true;
+
+            }
+
+            if(item.getItemId() == R.id.subs) {
+
+                Intent intent =
+                        new Intent(
+                                MainActivity.this,
+                                SubsActivity.class
+                        );
+
+                startActivity(intent);
+
+                return true;
+
+            }
+
+            if(item.getItemId() == R.id.settings) {
+
+                Intent intent =
+                        new Intent(
+                                MainActivity.this,
+                                SettingsActivity.class
+                        );
+
+                startActivity(intent);
+
+                return true;
+
+            }
+
+            return false;
 
         });
 
@@ -196,6 +248,8 @@ public class MainActivity extends AppCompatActivity {
 
         card.setCardElevation(10);
 
+        card.setCardBackgroundColor(0xFFFFFFFF);
+
         LinearLayout inside =
                 new LinearLayout(this);
 
@@ -211,6 +265,8 @@ public class MainActivity extends AppCompatActivity {
         titulo.setTextSize(22);
 
         titulo.setGravity(Gravity.START);
+
+        titulo.setPadding(0,0,0,10);
 
         TextView precio =
                 new TextView(this);
@@ -233,10 +289,81 @@ public class MainActivity extends AppCompatActivity {
 
         fechaTxt.setTextSize(16);
 
+        Button editar =
+                new Button(this);
+
+        editar.setText("Editar");
+
+        editar.setBackgroundColor(0xFF2563EB);
+
+        editar.setTextColor(0xFFFFFFFF);
+
         Button eliminar =
                 new Button(this);
 
         eliminar.setText("Eliminar");
+
+        eliminar.setBackgroundColor(0xFFDC2626);
+
+        eliminar.setTextColor(0xFFFFFFFF);
+
+        editar.setOnClickListener(v -> {
+
+            AlertDialog.Builder builder =
+                    new AlertDialog.Builder(this);
+
+            builder.setTitle("Editar Subscripción");
+
+            LinearLayout layout =
+                    new LinearLayout(this);
+
+            layout.setOrientation(LinearLayout.VERTICAL);
+
+            layout.setPadding(40,40,40,40);
+
+            EditText nuevoNombre =
+                    new EditText(this);
+
+            nuevoNombre.setText(nombre);
+
+            layout.addView(nuevoNombre);
+
+            EditText nuevoCosto =
+                    new EditText(this);
+
+            nuevoCosto.setText(costo);
+
+            nuevoCosto.setInputType(InputType.TYPE_CLASS_NUMBER);
+
+            layout.addView(nuevoCosto);
+
+            builder.setView(layout);
+
+            builder.setPositiveButton("Guardar",
+                    (dialog, which) -> {
+
+                        titulo.setText(
+                                "🔥 " +
+                                        nuevoNombre.getText().toString()
+                        );
+
+                        precio.setText(
+                                "$" +
+                                        nuevoCosto.getText().toString()
+                                        + " MXN"
+                        );
+
+                        Toast.makeText(
+                                this,
+                                "Subscripción actualizada",
+                                Toast.LENGTH_SHORT
+                        ).show();
+
+                    });
+
+            builder.show();
+
+        });
 
         eliminar.setOnClickListener(v -> {
 
@@ -260,6 +387,8 @@ public class MainActivity extends AppCompatActivity {
 
         inside.addView(fechaTxt);
 
+        inside.addView(editar);
+
         inside.addView(eliminar);
 
         card.addView(inside);
@@ -277,3 +406,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
+
