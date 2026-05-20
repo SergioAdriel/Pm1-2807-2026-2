@@ -5,7 +5,7 @@ import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-//Jesus Eduardo Diaz Pompa
+//Sergio Adriel Muñoz Camarena
     EditText pantalla;
     double op1 = 0, op2 = 0, res = 0;
     String operacion = "";

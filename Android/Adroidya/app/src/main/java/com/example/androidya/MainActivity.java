@@ -1,6 +1,6 @@
 package com.example.androidya;
 
-// Jesus Eduardo Diaz Pompa
+// Sergio Adriel Muñoz Camarena
 
 import androidx.appcompat.app.AppCompatActivity;
 

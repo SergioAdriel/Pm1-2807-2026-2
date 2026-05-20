@@ -1,5 +1,4 @@
-//Jesus Eduardo Diaz Pompa
-
+//Sergio Adriel Muñoz Camarena
 package com.example.lista_fragmento;
 
 import android.app.Activity;
