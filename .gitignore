@@ -1,0 +1,55 @@
+# Archivos generados por Gradle
+.gradle/
+build/
+**/build/
+
+# Archivos locales de configuración
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Archivos de compilación
+captures/
+.externalNativeBuild/
+.cxx/
+
+# APKs / AABs generados
+*.apk
+*.aab
+
+# Logs
+*.log
+
+# Archivos temporales del sistema
+.DS_Store
+Thumbs.db
+
+# Keystore (NO subir llaves privadas)
+*.jks
+*.keystore
+
+# Archivos de cache
+.gradle-cache/
+.cache/
+
+# Kotlin
+.kotlin/
+
+# Firebase / Google Services (opcional, depende si quieres ocultarlo)
+# google-services.json
+
+# NDK
+obj/
+
+# Archivos de profiling
+*.hprof
+
+# VS Code (si lo usas también)
+.vscode/
+
+# Archivos temporales de Windows
+desktop.ini

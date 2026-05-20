@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- ===================== -->
+        <!-- NOTAS -->
+        <!-- ===================== -->
+        <TextView
+            android:text="Notas"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/etNotas"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="#FFFF00"
+            android:hint="Escribe tus notas"
+            android:gravity="top"
+            android:inputType="textMultiLine"/>
+
+        <Button
+            android:text="Guardar Notas"
+            android:onClick="guardarNotas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- ===================== -->
+        <!-- CALENDARIO -->
+        <!-- ===================== -->
+        <TextView
+            android:text="Calendario"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/etFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese fecha (dd/mm/yyyy)"
+            android:inputType="date"/>
+
+        <EditText
+            android:id="@+id/etContenido"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#FFFF00"
+            android:hint="Actividad"
+            android:gravity="top"
+            android:inputType="textMultiLine"/>
+
+        <Button
+            android:text="Guardar Fecha"
+            android:onClick="guardarFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:text="Recuperar Fecha"
+            android:onClick="recuperarFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- ===================== -->
+        <!-- MEMORIA SD -->
+        <!-- ===================== -->
+        <TextView
+            android:text="Archivos SD"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/etArchivo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre del archivo"/>
+
+        <EditText
+            android:id="@+id/etContenidoSD"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#FFCCCC"
+            android:hint="Contenido"
+            android:gravity="top"
+            android:inputType="textMultiLine"/>
+
+        <Button
+            android:text="Guardar SD"
+            android:onClick="guardarSD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:text="Recuperar SD"
+            android:onClick="recuperarSD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- ===================== -->
+        <!-- SQLITE -->
+        <!-- ===================== -->
+        <TextView
+            android:text="Base de Datos (Artículos)"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/etCodigo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Código"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/etDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Descripción"/>
+
+        <EditText
+            android:id="@+id/etPrecio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Precio"
+            android:inputType="numberDecimal"/>
+
+        <Button
+            android:text="Alta"
+            android:onClick="alta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:text="Consultar Código"
+            android:onClick="consultarCodigo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:text="Eliminar"
+            android:onClick="eliminar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:text="Modificar"
+            android:onClick="modificar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</ScrollView>
