@@ -1,18 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#F3F4F6">
+    android:background="@color/background">
 
-    <ScrollView
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:fillViewport="true">
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SubsManager"
+                android:textColor="@color/on_background"
+                android:textSize="32sp"
+                android:fontFamily="sans-serif-black"/>
+
+            <TextView
+                android:id="@+id/resumenTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gasto Mensual: $0 MXN"
+                android:textColor="@color/primary"
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-medium"/>
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,62 +49,65 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="SubsManager"
-                android:textColor="#111827"
-                android:textSize="34sp"
-                android:textStyle="bold"/>
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/divider"
+                app:cardBackgroundColor="@color/surface">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Gestiona tus suscripciones"
-                android:textColor="#6B7280"
-                android:textSize="16sp"
-                android:layout_marginTop="4dp"/>
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/pieChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_margin="16dp"/>
+            </com.google.android.material.card.MaterialCardView>
 
-            <TextView
-                android:id="@+id/resumenTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Próximo cobro total: $0 MXN"
-                android:textColor="#2563EB"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp"/>
-
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/addButton"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="➕ Agregar Subscripción"
-                android:layout_marginTop="20dp"/>
+                android:layout_height="64dp"
+                android:text="Añadir Suscripción"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                app:cornerRadius="16dp"
+                android:layout_marginTop="24dp"
+                app:icon="@android:drawable/ic_input_add"
+                style="@style/Widget.Material3.Button"/>
 
-            <Button
-                android:id="@+id/creditsButton"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="👨‍💻 Créditos"
-                android:layout_marginTop="10dp"/>
+                android:text="Tus Planes"
+                android:textColor="@color/on_background"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"/>
 
             <LinearLayout
                 android:id="@+id/containerSubs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="20dp"/>
+                android:orientation="vertical"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="80dp"/>
 
         </LinearLayout>
-
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        app:menu="@menu/bottom_menu"/>
+        android:layout_gravity="bottom"
+        android:background="@color/surface"
+        app:elevation="8dp"
+        app:menu="@menu/bottom_menu"
+        style="@style/Widget.Material3.BottomNavigationView"/>
 
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

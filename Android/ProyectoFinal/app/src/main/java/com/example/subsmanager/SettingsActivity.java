@@ -1,50 +1,52 @@
 package com.example.subsmanager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.materialswitch.MaterialSwitch;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    Switch switchGeneral;
-    Switch switchNetflix;
-    Switch switchSpotify;
-    Switch switchDisney;
+    MaterialSwitch switchGeneral;
+    MaterialSwitch switchDarkMode;
+    MaterialCardView cardCredits;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_settings);
 
         switchGeneral = findViewById(R.id.switchGeneral);
+        switchDarkMode = findViewById(R.id.switchDarkMode);
+        cardCredits = findViewById(R.id.cardCredits);
 
+        // Configurar estado actual del modo oscuro
+        int currentMode = AppCompatDelegate.getDefaultNightMode();
+        switchDarkMode.setChecked(currentMode == AppCompatDelegate.MODE_NIGHT_YES);
 
-        switchGeneral.setOnCheckedChangeListener((buttonView, isChecked) -> {
-
-            if(isChecked) {
-
-                Toast.makeText(
-                        this,
-                        "Notificaciones activadas",
-                        Toast.LENGTH_SHORT
-                ).show();
-
+        switchDarkMode.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             } else {
-
-                Toast.makeText(
-                        this,
-                        "Notificaciones desactivadas",
-                        Toast.LENGTH_SHORT
-                ).show();
-
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
-
         });
 
-    }
+        switchGeneral.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                Toast.makeText(this, "Notificaciones activadas", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Notificaciones desactivadas", Toast.LENGTH_SHORT).show();
+            }
+        });
 
+        cardCredits.setOnClickListener(v -> {
+            startActivity(new Intent(SettingsActivity.this, CreditsActivity.class));
+        });
+    }
 }
