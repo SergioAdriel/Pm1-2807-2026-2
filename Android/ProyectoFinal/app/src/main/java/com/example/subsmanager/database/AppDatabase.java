@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase;
 
 import com.example.subsmanager.model.Subscription;
 
-@Database(entities = {Subscription.class}, version = 1)
+@Database(entities = {Subscription.class}, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase instance;
 

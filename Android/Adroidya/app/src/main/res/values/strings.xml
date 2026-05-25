@@ -1,3 +1,28 @@
 <resources>
-    <string name="app_name">androidya</string>
+    <string name="app_name">AndroidYa</string>
+    <string name="title_main">Gestor AndroidYa</string>
+    <string name="section_notas">Notas Rápidas</string>
+    <string name="hint_notas">Escribe tus notas aquí</string>
+    <string name="btn_guardar_notas">Guardar Notas</string>
+
+    <string name="section_agenda">Agenda por Fecha</string>
+    <string name="hint_fecha">Fecha (dd/mm/yyyy)</string>
+    <string name="hint_actividad">Actividad / Contenido</string>
+    <string name="btn_guardar">Guardar</string>
+    <string name="btn_recuperar">Recuperar</string>
+
+    <string name="section_archivos">Archivos Externos</string>
+    <string name="hint_nombre_archivo">Nombre del archivo</string>
+    <string name="hint_contenido_sd">Contenido SD</string>
+    <string name="btn_guardar_sd">Guardar SD</string>
+    <string name="btn_leer_sd">Leer SD</string>
+
+    <string name="section_sqlite">Inventario (SQLite)</string>
+    <string name="hint_codigo">Código</string>
+    <string name="hint_descripcion">Descripción</string>
+    <string name="hint_precio">Precio</string>
+    <string name="btn_alta">Alta</string>
+    <string name="btn_consultar">Consultar</string>
+    <string name="btn_modificar">Modificar</string>
+    <string name="btn_eliminar">Eliminar</string>
 </resources>

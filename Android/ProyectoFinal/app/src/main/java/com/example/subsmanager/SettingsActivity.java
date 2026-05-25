@@ -25,9 +25,13 @@ public class SettingsActivity extends AppCompatActivity {
         switchDarkMode = findViewById(R.id.switchDarkMode);
         cardCredits = findViewById(R.id.cardCredits);
 
-        // Configurar estado actual del modo oscuro
+        // Configurar estado actual del modo oscuro basado en el sistema si no hay preferencia guardada
         int currentMode = AppCompatDelegate.getDefaultNightMode();
-        switchDarkMode.setChecked(currentMode == AppCompatDelegate.MODE_NIGHT_YES);
+        if (currentMode == AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM || currentMode == AppCompatDelegate.MODE_NIGHT_UNSPECIFIED) {
+            switchDarkMode.setChecked(false); // O podrías detectar si el sistema está en oscuro
+        } else {
+            switchDarkMode.setChecked(currentMode == AppCompatDelegate.MODE_NIGHT_YES);
+        }
 
         switchDarkMode.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
@@ -40,6 +44,12 @@ public class SettingsActivity extends AppCompatActivity {
         switchGeneral.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 Toast.makeText(this, "Notificaciones activadas", Toast.LENGTH_SHORT).show();
+                // Notificación de prueba
+                com.example.subsmanager.utils.NotificationHelper.showNotification(
+                        this,
+                        "SubsManager",
+                        "¡Las notificaciones están activas!"
+                );
             } else {
                 Toast.makeText(this, "Notificaciones desactivadas", Toast.LENGTH_SHORT).show();
             }
